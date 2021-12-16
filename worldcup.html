@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>worldcup</title>
+    <link rel="stylesheet" href="css/worldcup.css">
+</head>
+<body>
+
+    <header>
+        야식 월드컵
+    </header>
+
+        <div id="round">8강 ( 1 / 4 ) </div> 
+
+    
+    <main>
+        <div class = "left" onclick="leftclick()">
+            <img src="images/food1.jpg" alt="" id="leftimg" >
+            <p id="leftname">라면</p>
+        </div>
+
+        <div class = "right" onclick="rightclick()">
+            <img src="images/food2.jpg" alt="" id="rightimg">
+            <p id="rightname">삼겹살</p>
+        </div>
+    </main>
+
+
+        <img src="" alt="" id = "win">
+        <div class = "restart">
+            <a href="index.html" class="start">다시하기</a>
+        </div>
+
+
+    <script>
+        let images = ['images/food1.jpg','images/food2.jpg','images/food3.jpg','images/food4.jpg','images/food5.jpg','images/food6.jpg','images/food7.jpg','images/food8.jpg',]
+        let imgName = ['라면','삼겹살','피자','치킨','햄버거','떡볶이','수육','닭밝'];
+        let round = 8; //현재 라운드
+        let idx = 0;
+
+        function leftclick() {
+
+            images[idx/2] = images[idx];
+            imgName[idx/2] = imgName[idx];
+            idx +=2;
+            if(idx>=round) {
+                round/=2;
+                idx=0;
+                if(round <= 1) 
+                {
+                    document.querySelector("#round").innerHTML= "야식 월드컵 우승!"
+                    document.querySelector("#win").setAttribute("src",images[0]);
+                    document.querySelector("#win").style.display="block";
+                    document.querySelector("main").style.display="none";
+                    document.querySelector(".start").style.display="block";
+                    return;
+                }
+            }
+            document.querySelector("#leftname").innerHTML = imgName[idx];
+            document.querySelector("#rightname").innerHTML = imgName[idx+1];
+            document.querySelector("#leftimg").setAttribute("src",images[idx]);
+            document.querySelector("#rightimg").setAttribute("src",images[idx+1]);
+            if(round == 2) document.querySelector("#round").innerHTML= "결승전"
+            else document.querySelector("#round").innerHTML=round + "강 ( " + (idx/2+1) + " / " + round/2 + " )";
+
+        }
+
+        function rightclick() {
+            images[idx/2] = images[idx+1];
+            imgName[idx/2] = imgName[idx+1];
+            idx +=2;
+            if(idx>=round) {
+                round/=2;
+                idx=0;
+                if(round <= 1) 
+                {
+                    document.querySelector("#round").innerHTML= "야식 월드컵 우승!"
+                    document.querySelector("#win").setAttribute("src",images[0]);
+                    document.querySelector("#win").style.display="block";
+                    document.querySelector("main").style.display="none";
+                    document.querySelector(".start").style.display="block";
+                    return;
+                }
+            }
+            document.querySelector("#leftname").innerHTML = imgName[idx];
+            document.querySelector("#rightname").innerHTML = imgName[idx+1];
+            document.querySelector("#leftimg").setAttribute("src",images[idx]);
+            document.querySelector("#rightimg").setAttribute("src",images[idx+1]);
+            if(round == 2) document.querySelector("#round").innerHTML= "결승전"
+            else document.querySelector("#round").innerHTML=round + "강 ( " + (idx/2+1) + " / " + round/2 + " )";
+
+        }
+    </script>
+    
+</body>
+</html>
