@@ -59,10 +59,11 @@
                     return;
                 }
             }
-            document.querySelector("#leftname").innerHTML = imgName[idx];
-            document.querySelector("#rightname").innerHTML = imgName[idx+1];
+            
             document.querySelector("#leftimg").setAttribute("src",images[idx]);
             document.querySelector("#rightimg").setAttribute("src",images[idx+1]);
+            document.querySelector("#leftname").innerHTML = imgName[idx];
+            document.querySelector("#rightname").innerHTML = imgName[idx+1];
             if(round == 2) document.querySelector("#round").innerHTML= "결승전"
             else document.querySelector("#round").innerHTML=round + "강 ( " + (idx/2+1) + " / " + round/2 + " )";
 
@@ -85,10 +86,11 @@
                     return;
                 }
             }
-            document.querySelector("#leftname").innerHTML = imgName[idx];
-            document.querySelector("#rightname").innerHTML = imgName[idx+1];
+           
             document.querySelector("#leftimg").setAttribute("src",images[idx]);
             document.querySelector("#rightimg").setAttribute("src",images[idx+1]);
+            document.querySelector("#leftname").innerHTML = imgName[idx];
+            document.querySelector("#rightname").innerHTML = imgName[idx+1];
             if(round == 2) document.querySelector("#round").innerHTML= "결승전"
             else document.querySelector("#round").innerHTML=round + "강 ( " + (idx/2+1) + " / " + round/2 + " )";
 
